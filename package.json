@@ -1,14 +1,15 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "innobox",
+  "version": "0.0.x",
+  "description": "Electron autoUpdate Example with Inno Setup",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "package": "node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom/electron-quick-start.git"
+    "url": "git+https://github.com/codeskyblue/electron-quick-start.git"
   },
   "keywords": [
     "Electron",
@@ -19,10 +20,13 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/atom/electron-quick-start/issues"
+    "url": "https://github.com/codeskyblue/electron-quick-start/issues"
   },
-  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "homepage": "https://github.com/codeskyblue/electron-quick-start#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.0"
+    "electron-prebuilt": "^0.36.0",
+    "gulp": "^3.9.0",
+    "gulp-electron": "0.0.10",
+    "gulp-inno": "0.0.7"
   }
 }
