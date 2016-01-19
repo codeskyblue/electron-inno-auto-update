@@ -7,7 +7,7 @@ var pkg = require('./package.json')
 var compileDir = './compile';
 
 gulp.task('copy', ['copy:modules'], function(){
-  return gulp.src(['main.js', 'package.json', 'index.html'])
+  return gulp.src(['main.js', 'package.json', 'index.html', 'icons/**/*'], {base: './'})
     .pipe(gulp.dest(compileDir))
 })
 

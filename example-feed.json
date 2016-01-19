@@ -1,0 +1,11 @@
+{
+    "name": "qatools",
+    "version": "0.0.3",
+    "commit": "6ceee94bdf40a6f7561646cad6983683c9eea648",
+    "date": "2016-12-07",
+    "node": "5.1.1",
+    "electron": "0.34.6",
+    "changelog": "Don't tell you.",
+    "updateURL": "https://gohttp.nie.netease.com/qatools/qatools/qatools-0.0.5/innobox-upgrade.exe",
+    "homepage": "http://qatools.nie.netease.com"
+}

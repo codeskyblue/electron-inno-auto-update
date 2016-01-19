@@ -1,10 +1,10 @@
 {
   "name": "innobox",
-  "version": "0.0.x",
+  "version": "0.0.2",
   "description": "Electron autoUpdate Example with Inno Setup",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
+    "start": "node_modules/.bin/electron main.js",
     "package": "node_modules/.bin/gulp"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "electron-prebuilt": "^0.36.0",
     "gulp": "^3.9.0",
     "gulp-electron": "0.0.10",
-    "gulp-inno": "0.0.7"
+    "gulp-inno": "0.0.7",
+    "underscore": "^1.8.3"
   }
 }

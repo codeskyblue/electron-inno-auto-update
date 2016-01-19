@@ -9,5 +9,20 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    App version <script>document.write(require('remote').app.getVersion())</script>.
+    <div>
+      <button id="check-update">Check for update</button>
+      <div id="update-downloaded" style="display: none">
+        Innobox will be updated after a restart.
+        <button id="quit-install">Update now</button>
+        <button id="later">Later</button>
+        <button id="changelog">Release notes</button>
+      </div>
+      <div id="update-not-avaliable" style="display: none">
+        There are no updates currently avaliable
+        <button id="close">Close</button>
+      </div>
+    </div>
+    <script src='index.js'></script>
   </body>
 </html>

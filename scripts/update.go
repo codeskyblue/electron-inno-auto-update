@@ -19,7 +19,9 @@ func init() {
 	flag.StringVar(&AppName, "name", "", "App name")
 	flag.Parse()
 	if AppName == "" {
-		log.Fatalf("run %s -h for more help", os.Args[0])
+		appPath, _ := filepath.Abs(os.Args[0])
+		AppName = filepath.Base(filepath.Dir(appPath))
+		// log.Fatalf("run %s -h for more help", os.Args[0])
 	}
 }
 
@@ -35,11 +37,13 @@ func runUpdate(name string) error {
 	}
 	setupPath := filepath.Join(tmpDir, name+"-update.exe")
 	if isExists(setupPath) {
-		cmd := exec.Command(setupPath, "/SILENT")
+		log.Println(setupPath)
+		cmd := exec.Command("cmd", "/c", setupPath+" /SILENT")
 		if err := cmd.Run(); err != nil {
 			os.Rename(setupPath, setupPath+".bad-program")
 			return err
 		}
+		log.Println("Finish run setup.exe")
 		return os.Remove(setupPath)
 	}
 	return nil
@@ -51,7 +55,15 @@ func runApp(name string) error {
 		return err
 	}
 
-	cmd := exec.Command(flag.Arg(0), flag.Args()[1:]...)
+	var cmd *exec.Cmd
+	if flag.NArg() != 0 {
+		cmd = exec.Command(flag.Arg(0), flag.Args()[1:]...)
+	} else {
+		appPath := filepath.Join(filepath.Dir(AppName), name)
+		cmd = exec.Command(appPath)
+	}
+	log.Println("Run app:", cmd.Args)
+
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
@@ -66,11 +78,9 @@ func runApp(name string) error {
 }
 
 func main() {
-	if flag.NArg() == 0 {
-		log.Fatalf("Usage: %s -name <AppName> -- <cmd> [args..]", os.Args[0])
-	}
 	err := runApp(AppName)
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("Program finished")
 }
