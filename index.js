@@ -17,7 +17,7 @@ window.onload = function(){
 		alert(window.releaseNotes);
 	}
 
-	innoUpdater.setFeedURL('')
+	innoUpdater.setFeedURL('https://raw.githubusercontent.com/codeskyblue/electron-quick-start/master/example-feed.json')
 	innoUpdater.on('checking-for-update', function(){
 		console.log("INFO: Checking update")
 	})
