@@ -6,6 +6,6 @@
     "node": "5.1.1",
     "electron": "0.34.6",
     "changelog": "Don't tell you.",
-    "updateURL": "https://gohttp.nie.netease.com/qatools/qatools/qatools-0.0.5/innobox-upgrade.exe",
+    "updateURL": "https://github.com/codeskyblue/electron-inno-auto-update/releases/download/v0.1/innobox-setup.exe",
     "homepage": "http://qatools.nie.netease.com"
 }
