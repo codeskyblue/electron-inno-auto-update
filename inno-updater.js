@@ -4,20 +4,27 @@
 // created: 2016-01-18
 // API reference: http://electron.atom.io/docs/v0.36.4/api/auto-updater/
 
+// changelog:
+// 2016-08-01:
+//  author: Qquanwei
+//  API reference: http://electron.atom.io/docs/api/auto-updater/
+//  upgrade to electronv1.3.1
+//  download to temp dictory as default
+
 const EventEmitter = require('events').EventEmitter;
-const remote = require('remote');
+const remote = require('electron').remote;
 const app = (remote && remote.app) || require('electron').app;
 const cproc = require('child_process');
 const path = require('path');
-const https = require('https');
-const http = require('http');
+const https = require('follow-redirects').https;
+const http = require('follow-redirects').http;
 const fs = require('fs')
 const parseUrl = require('url').parse
 
 const updater = new EventEmitter();
 let feedURL;
 let errCancel = new Error("cancel");
-let setupPath = path.join(process.env.TEMP, 'innobox-upgrade.exe');
+let setupPath = path.join(process.env.TEMP|| app.getPath('temp'), 'innobox-upgrade.exe');
 
 function makeRequest(url){
   let p = parseUrl(url)
@@ -27,6 +34,7 @@ function makeRequest(url){
     method: 'GET',
     host: p.host,
     path: p.path,
+    maxRedirect: 3
   })
   return req;
 }

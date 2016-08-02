@@ -33,7 +33,7 @@ gulp.task('electron', ['copy'], function() {
       cache: './.cache',
       packageJson: pkg,
       packaging: false,
-      version: 'v0.35.1',
+      version: 'v1.3.1',
       platforms: ['win32-x64'], //'darwin-x64'],
       asar: true,
       asarUnpackDir: 'vendor',
