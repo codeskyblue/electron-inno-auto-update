@@ -4,7 +4,7 @@
 #define AppName "innobox"
 #define AppExeName "innobox.exe"
 #define AppURL "https://github.com/codeskyblue"
-#define AppSrcDir "release/v0.35.1/win32-x64/"
+#define AppSrcDir "release/v1.3.1/win32-x64/"
 #define AppVersion GetFileVersion(AppSrcDir + "innobox.exe")
 #define AppPublisher "Netease, Inc"
 
