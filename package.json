@@ -29,5 +29,8 @@
     "gulp-electron": "0.0.10",
     "gulp-inno": "0.0.7",
     "underscore": "^1.8.3"
+  },
+  "dependencies": {
+    "follow-redirects": "^0.2.0"
   }
 }
